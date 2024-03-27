@@ -124,3 +124,17 @@ jobs:
         run: SKIP_DOCKER=true ./scripts/init_db.sh
       - name: Generate code coverage
         run: cargo install cargo-tarpaulin && cargo tarpaulin --verbose --workspace
+  cargo-deny:
+    name: Cargo Deny
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        checks:
+          - advisories
+          - bans licenses sources
+    continue-on-error: ${{ matrix.checks == 'advisories' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: EmbarkStudios/cargo-deny-action@v1
+        with:
+          command: check ${{ matrix.checks }}
