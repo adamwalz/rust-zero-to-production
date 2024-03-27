@@ -3,6 +3,7 @@ name = "zero2prod"
 version = "0.1.0"
 authors = ["Adam Walz <adam@adamwalz.net>"]
 edition = "2021"
+license = "MIT OR Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -17,7 +18,9 @@ name = "zero2prod"
 actix-web = "4"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 serde = "1.0.197"
-config = { version = "0.14", default-features = false, features = ["yaml"] }
+config = { git = "https://github.com/mehcode/config-rs.git", rev = "e3c1d0b452639478662a44f15ef6d5b6d969bf9b", default-features = false, features = [
+  "yaml",
+] }
 sqlx = { version = "0.7", default-features = false, features = [
   "runtime-tokio-rustls",
   "macros",
