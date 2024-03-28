@@ -3,11 +3,11 @@ name: Rust
 on:
   push:
     branches:
-      - root-chapter-07-part2
+      - root-chapter-08
     pull_request:
       types: [ opened, synchronize, reopened ]
       branches:
-        - root-chapter-07-part2
+        - root-chapter-08
 
 env:
   CARGO_TERM_COLOR: always
