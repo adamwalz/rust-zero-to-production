@@ -20,6 +20,12 @@ impl AsRef<str> for SubscriberEmail {
     }
 }
 
+impl std::fmt::Display for SubscriberEmail {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.0.fmt(f)
+    }
+}
+
 impl ValidateEmail for SubscriberEmail {
     fn as_email_string(&self) -> Option<std::borrow::Cow<str>> {
         Some(self.0.as_str().into())
